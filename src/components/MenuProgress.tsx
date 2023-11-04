@@ -8,7 +8,7 @@ export function MenuProgress(){
                     <span className="font-bold text-lg">Personal Information</span>
                     <p className="text-gray-400 opacity-70 text-sm">Browse and upload</p>
                 </div>
-                <div className="p-3 rounded-full bg-blue-400 relative flex justify-center items-start">
+                <div className="p-3 rounded-full bg-blue-400 relative flex justify-center items-start mr-16">
                     <User size={24} weight="fill" className="z-10"/>
                     <div className="w-px h-32 bg-blue-400 absolute"> </div>
                 </div>

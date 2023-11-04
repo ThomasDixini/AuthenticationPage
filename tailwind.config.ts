@@ -29,6 +29,9 @@ const config: Config = {
       },
       "white": {
         0: "#FFF",
+      },
+      "green": {
+        500: "#22c55e"
       }
     }
   },

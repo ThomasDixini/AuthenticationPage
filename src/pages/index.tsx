@@ -1,5 +1,5 @@
+import { HeaderSteps } from "@/components/HeaderSteps";
 import { MenuProgress } from "@/components/MenuProgress";
-import { Steps } from "@/components/Steps";
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
         <main
           className="p-8 flex-1"
         >
-          <Steps />
+          <HeaderSteps />
         </main>
       </div>
     </div>

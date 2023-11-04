@@ -13,6 +13,9 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      boxShadow: {
+        'focus': '1px 1px 2px green'
+      }
     },
     colors: {
       "blue": {
@@ -32,7 +35,8 @@ const config: Config = {
       },
       "green": {
         500: "#22c55e"
-      }
+      },
+      transparent: 'transparent'
     }
   },
   plugins: [],

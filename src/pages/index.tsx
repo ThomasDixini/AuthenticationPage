@@ -1,5 +1,6 @@
 import { HeaderSteps } from "@/components/HeaderSteps";
 import { MenuProgress } from "@/components/MenuProgress";
+import { ValidationFields } from "@/components/ValidationFields";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
           className="p-8 flex-1"
         >
           <HeaderSteps />
+          <ValidationFields />
         </main>
       </div>
     </div>

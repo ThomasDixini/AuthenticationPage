@@ -1,10 +1,10 @@
+import { MenuContext } from "@/context/MenuContext";
 import { Check, User } from "phosphor-react";
-import { useState } from "react";
+import { useContext } from "react";
 
 export function MenuProgress() {
   const steps = ["Personal Information", "ID Verification", "Selfie", "Review"];
-  const [currentStep, setCurrentStep] = useState(4);
-  const [complete, setComplete] = useState(false);
+  const { currentStep } = useContext(MenuContext)
 
   return (
     <menu className="mt-8 flex flex-col gap-20">

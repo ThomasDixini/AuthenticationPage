@@ -5,7 +5,7 @@ import { MenuContext } from "@/context/MenuContext";
 import { useContext } from "react";
 
 export default function Home() {
-  const { handleAddCurrentStep, handleDecrementCurrentStep } = useContext(MenuContext)
+  const { handleIncrementCurrentStep, handleDecrementCurrentStep } = useContext(MenuContext)
 
   return (
     <div className="max-w-7xl m-auto grid grid-cols-3 flex">
@@ -25,7 +25,7 @@ export default function Home() {
           <ValidationFields />
           <div className="mt-8 flex justify-end">
             <button className="px-12 h-14 font-bold hover:brightness-50 duration-200" onClick={handleDecrementCurrentStep}> Back </button>
-            <button className="px-12 h-14 bg-blue-600 rounded-lg font-bold hover:bg-blue-900 duration-200" onClick={handleAddCurrentStep}> Next </button>
+            <button className="px-12 h-14 bg-blue-600 rounded-lg font-bold hover:bg-blue-900 duration-200" onClick={handleIncrementCurrentStep}> Next </button>
           </div>
         </main>
       </div>

@@ -6,7 +6,7 @@ interface MenuContextProviderProps {
 
 interface MenuContextData {
     currentStep: number
-    handleAddCurrentStep: () => void
+    handleIncrementCurrentStep: () => void
     handleDecrementCurrentStep: () => void
 }
 
@@ -16,7 +16,7 @@ export function MenuContextProvider({children}: MenuContextProviderProps){
     const [currentStep, setCurrentStep] = useState(1);
     const [complete, setComplete] = useState(false);
 
-    function handleAddCurrentStep() {
+    function handleIncrementCurrentStep() {
         if(currentStep <= 4){
             setCurrentStep(state => state += 1)
         }
@@ -31,7 +31,7 @@ export function MenuContextProvider({children}: MenuContextProviderProps){
     return(
         <MenuContext.Provider value={{
             currentStep, 
-            handleAddCurrentStep,
+            handleIncrementCurrentStep,
             handleDecrementCurrentStep
         }}>
             {children}

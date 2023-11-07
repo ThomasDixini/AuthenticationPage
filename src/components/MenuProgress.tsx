@@ -22,7 +22,7 @@ export function MenuProgress() {
             </div>
             <div className={`relative flex justify-center items-start mr-16 `}>
               <div
-                className={`p-3 rounded-full bg-gray-600 z-10
+                className={`p-3 rounded-full bg-gray-600 z-10 duration-200
                 ${currentStep === indice + 1 && "active"} 
                 ${indice + 1 < currentStep && "complete"}
                 `}
@@ -37,7 +37,7 @@ export function MenuProgress() {
             </div>
             <div className="w-5 h-5 border-4 border-blue-800 rounded-full flex justify-center items-center absolute -right-2.5">
               <div
-                className={`w-3 h-3 bg-blue-950 rounded-full ${
+                className={`w-3 h-3 bg-blue-950 rounded-full duration-200 ${
                   indice + 1 < currentStep && "complete"
                 }`}
               ></div>

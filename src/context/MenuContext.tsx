@@ -17,7 +17,7 @@ export function MenuContextProvider({children}: MenuContextProviderProps){
     const [complete, setComplete] = useState(false);
 
     function handleIncrementCurrentStep() {
-        if(currentStep <= 4){
+        if(currentStep < 4){
             setCurrentStep(state => state += 1)
         }
     }

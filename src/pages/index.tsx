@@ -1,11 +1,23 @@
 import { HeaderSteps } from "@/components/HeaderSteps";
 import { MenuProgress } from "@/components/MenuProgress";
+import { PersonaInformationStep } from "@/components/PersonaInformationStep";
 import { ValidationFields } from "@/components/ValidationFields";
 import { MenuContext } from "@/context/MenuContext";
 import { useContext } from "react";
 
 export default function Home() {
-  const { handleIncrementCurrentStep, handleDecrementCurrentStep } = useContext(MenuContext)
+  const { currentStep, handleIncrementCurrentStep, handleDecrementCurrentStep } = useContext(MenuContext)
+
+  const defineValidationPageContent = () => {
+    switch(currentStep) {
+      case 1:
+        return <PersonaInformationStep />
+      case 2:
+        return <ValidationFields />
+      default:
+        return <div> Hi There! </div>
+    }
+  }
 
   return (
     <div className="max-w-7xl m-auto grid grid-cols-3 flex">
@@ -22,7 +34,7 @@ export default function Home() {
           className="p-8 flex-1"
         >
           <HeaderSteps />
-          <ValidationFields />
+          {defineValidationPageContent()}
           <div className="mt-8 flex justify-end">
             <button className="px-12 h-14 font-bold hover:brightness-50 duration-200" onClick={handleDecrementCurrentStep}> Back </button>
             <button className="px-12 h-14 bg-blue-600 rounded-lg font-bold hover:bg-blue-900 duration-200" onClick={handleIncrementCurrentStep}> Next </button>

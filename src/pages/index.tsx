@@ -10,7 +10,7 @@ export default function Home() {
         <span className="text-lg text-gray-400 opacity-70 leading-10">Verify your identity and get started </span>
       </header>
 
-      <div className="py-8 col-span-3 flex gap-10">
+      <div className="pt-8 col-span-3 flex gap-10">
         <aside className="min-h-screen border-r-2 border-blue-800">
           <MenuProgress />
         </aside>
@@ -19,6 +19,10 @@ export default function Home() {
         >
           <HeaderSteps />
           <ValidationFields />
+          <div className="mt-8 flex justify-end">
+            <button className="px-12 h-14 font-bold hover:brightness-50 duration-200"> Back </button>
+            <button className="px-12 h-14 bg-blue-600 rounded-lg font-bold hover:bg-blue-900 duration-200"> Next </button>
+          </div>
         </main>
       </div>
     </div>

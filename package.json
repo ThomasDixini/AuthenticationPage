@@ -16,7 +16,8 @@
     "phosphor-react": "^1.4.1",
     "react": "^18",
     "react-dom": "^18",
-    "react-easy-crop": "^5.0.2"
+    "react-easy-crop": "^5.0.2",
+    "react-hook-form": "^7.48.2"
   },
   "devDependencies": {
     "@types/node": "^20",

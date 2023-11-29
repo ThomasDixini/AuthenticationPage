@@ -15,6 +15,9 @@ const config: Config = {
       },
       boxShadow: {
         'focus': '1px 1px 2px green'
+      },
+      maxWidth: {
+        '100p': '100px'
       }
     },
     colors: {

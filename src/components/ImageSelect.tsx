@@ -35,8 +35,8 @@ export function ImageSelect() {
             {
                 image && 
                 <div className="w-full bg-blue-900 mt-8 rounded-md p-8 flex flex-col items-center gap-6">
-                    <div className="rounded-full p-1 border-2 border-blue-400">
-                        <Image src={image} width={100} height={100} alt="Imagem de Perfil" className="rounded-full"/>
+                    <div className="rounded-full p-1 border-2 border-blue-400 object-cover ">
+                        <Image src={image} width={96} height={96} alt="Imagem de Perfil" className="rounded-full object-cover h-24 w-24"/>
                     </div>
                     <span className="border-2 border-blue-400 py-2 px-4 rounded-full font-bold flex gap-2 items-center">Imagem Selecionada {<Check size={24} weight="bold"/>} </span>
                 </div>

@@ -2,6 +2,7 @@ import { HeaderSteps } from "@/components/HeaderSteps";
 import { ImageSelect } from "@/components/ImageSelect";
 import { MenuProgress } from "@/components/MenuProgress";
 import { PersonaInformationStep } from "@/components/PersonaInformationStep";
+import { ReviewStep } from "@/components/ReviewStep";
 import { ValidationFields } from "@/components/ValidationFields";
 import { MenuContext } from "@/context/MenuContext";
 import { useContext } from "react";
@@ -21,6 +22,8 @@ export default function Home() {
         return <ValidationFields />;
       case 3:
         return <ImageSelect />;
+      case 4:
+        return <ReviewStep />;
       default:
         return <div> Hi There! </div>;
     }

@@ -1,9 +1,29 @@
-import { Select } from "@mui/material";
+import { InputBase, Select } from "@mui/material";
 import { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import { useState } from "react";
-import { blue } from "@mui/material/colors";
+import { styled } from '@mui/material/styles';
+
+const BootstrapInput = styled(InputBase)(({ theme }) => ({
+  'label + &': {
+    marginTop: theme.spacing(3),
+  },
+  '& .MuiInputBase-input': {
+    borderRadius: 4,
+    position: 'relative',
+    backgroundColor: 'transparent',
+    color: 'white',
+    border: '2px solid #4b5563',
+    fontSize: 16,
+    padding: '16px',
+    transition: theme.transitions.create(['border-color', 'box-shadow']),
+    '&:focus': {
+      borderRadius: 4,
+      borderColor: '#60a5fa',
+    },
+  },
+}));
 
 export function ValidationFields() {
   const [flag, setFlag] = useState("Brasil");
@@ -14,20 +34,21 @@ export function ValidationFields() {
 
   return (
     <div className="text-white-0">
-      <InputLabel id="flag-select-label" className="mt-8 text-white-0">
+      <InputLabel id="flag-select-label" className="mt-8 text-white-0" sx={{
+        color: 'white'
+      }}>
         {" "}
         Select document issues country{" "}
       </InputLabel>
       <Select
-        className="w-full text-white-0 mt-2"
+        className="w-full text-white-0 mt-2 focus:outline-2 focus:outline-white-0"
         labelId="flag-select-label"
         id="flag-select"
         value={flag}
         label="flag"
         onChange={handleChange}
-        sx={{
-          outline: "10px",
-        }}
+        inputProps={{ 'aria-label': 'Without label'}}
+        input={<BootstrapInput />}
       >
         <MenuItem value="USA">United States</MenuItem>
         <MenuItem value="Brasil">Brasil</MenuItem>

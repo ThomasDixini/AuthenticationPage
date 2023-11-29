@@ -42,7 +42,7 @@ export default function Home() {
         <main className="p-8 flex-1">
           <HeaderSteps />
           {defineValidationPageContent()}
-          <div className="mt-8 flex justify-end">
+          <div className="mt-8 flex justify-end gap-2">
             <button
               className="px-12 h-14 font-bold hover:brightness-50 duration-200"
               onClick={handleDecrementCurrentStep}

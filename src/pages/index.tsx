@@ -5,7 +5,7 @@ import { PersonaInformationStep } from "@/components/PersonaInformationStep";
 import { ReviewStep } from "@/components/ReviewStep";
 import { ValidationFields } from "@/components/ValidationFields";
 import { MenuContext } from "@/context/MenuContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 export default function Home() {
   const {
@@ -14,6 +14,8 @@ export default function Home() {
     handleDecrementCurrentStep,
   } = useContext(MenuContext);
 
+  const [image, setImage] = useState('')
+
   const defineValidationPageContent = () => {
     switch (currentStep) {
       case 1:
@@ -21,9 +23,9 @@ export default function Home() {
       case 2:
         return <ValidationFields />;
       case 3:
-        return <ImageSelect />;
+        return <ImageSelect image={image} setImage={setImage}/>;
       case 4:
-        return <ReviewStep />;
+        return <ReviewStep image={image}/>;
       default:
         return <div> Hi There! </div>;
     }

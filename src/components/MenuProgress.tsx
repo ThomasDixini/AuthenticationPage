@@ -1,10 +1,10 @@
 import { MenuContext } from "@/context/MenuContext";
-import { Check, User } from "phosphor-react";
+import { Fingerprint, User, Camera, ListChecks } from "phosphor-react";
 import { useContext } from "react";
 
 export function MenuProgress() {
   const steps = ["Personal Information", "ID Verification", "Selfie", "Review"];
-  const { currentStep } = useContext(MenuContext)
+  const { currentStep } = useContext(MenuContext);
 
   return (
     <menu className="mt-8 flex flex-col gap-20">
@@ -27,13 +27,27 @@ export function MenuProgress() {
                 ${indice + 1 < currentStep && "complete"}
                 `}
               >
-                {indice + 1 < currentStep ? (
-                  <Check size={24} weight="fill" className="z-10" />
-                ) : (
+                {indice == 0 && (
                   <User size={24} weight="fill" className="z-10" />
                 )}
+                {indice == 1 && (
+                  <Fingerprint size={24} weight="fill" className="z-10" />
+                )}
+                {indice == 2 && (
+                  <Camera size={24} weight="fill" className="z-10" />
+                )}
+                {indice == 3 && (
+                  <ListChecks size={24} weight="fill" className="z-10" />
+                )}
+                {/* {indice < currentStep && (
+                  <Check  size={24} weight="fill" className="z-10" />
+                )} */}
               </div>
-              { indice === 3 ? <></> : <div className="w-px h-32 bg-blue-400 absolute"></div>}
+              {indice === 3 ? (
+                <></>
+              ) : (
+                <div className="w-px h-32 bg-blue-400 absolute"></div>
+              )}
             </div>
             <div className="w-5 h-5 border-4 border-blue-800 rounded-full flex justify-center items-center absolute -right-2.5">
               <div

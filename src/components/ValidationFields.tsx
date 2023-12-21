@@ -3,29 +3,34 @@ import { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import { useState } from "react";
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
+import { FieldValues, UseFormRegister } from "react-hook-form";
+
+interface ValidationFieldsProps {
+  register: UseFormRegister<FieldValues>;
+}
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
-  'label + &': {
+  "label + &": {
     marginTop: theme.spacing(3),
   },
-  '& .MuiInputBase-input': {
+  "& .MuiInputBase-input": {
     borderRadius: 4,
-    position: 'relative',
-    backgroundColor: 'transparent',
-    color: 'white',
-    border: '2px solid #4b5563',
+    position: "relative",
+    backgroundColor: "transparent",
+    color: "white",
+    border: "2px solid #4b5563",
     fontSize: 16,
-    padding: '16px',
-    transition: theme.transitions.create(['border-color', 'box-shadow']),
-    '&:focus': {
+    padding: "16px",
+    transition: theme.transitions.create(["border-color", "box-shadow"]),
+    "&:focus": {
       borderRadius: 4,
-      borderColor: '#60a5fa',
+      borderColor: "#60a5fa",
     },
   },
 }));
 
-export function ValidationFields() {
+export function ValidationFields({ register }: ValidationFieldsProps) {
   const [flag, setFlag] = useState("Brasil");
 
   function handleChange(event: SelectChangeEvent) {
@@ -34,9 +39,13 @@ export function ValidationFields() {
 
   return (
     <div className="text-white-0">
-      <InputLabel id="flag-select-label" className="mt-8 text-white-0" sx={{
-        color: 'white'
-      }}>
+      <InputLabel
+        id="flag-select-label"
+        className="mt-8 text-white-0"
+        sx={{
+          color: "white",
+        }}
+      >
         {" "}
         Select document issues country{" "}
       </InputLabel>
@@ -46,9 +55,9 @@ export function ValidationFields() {
         id="flag-select"
         value={flag}
         label="flag"
-        onChange={handleChange}
-        inputProps={{ 'aria-label': 'Without label'}}
+        inputProps={{ "aria-label": "Without label" }}
         input={<BootstrapInput />}
+        {...register("flag-select")}
       >
         <MenuItem value="USA">United States</MenuItem>
         <MenuItem value="Brasil">Brasil</MenuItem>
@@ -60,16 +69,19 @@ export function ValidationFields() {
           type="email"
           className="bg-transparent border-2 border-gray-600 rounded-md p-4 outline-0 focus:border-2 focus:border-blue-400 duration-200"
           placeholder="Your Email"
+          {...register("email")}
         />
         <input
           type="password"
           className="bg-transparent border-2 border-gray-600 rounded-md p-4 outline-0 focus:border-2 focus:border-blue-400 duration-200"
           placeholder="Your Password"
+          {...register("password")}
         />
         <input
           type="password"
           className="bg-transparent border-2 border-gray-600 rounded-md p-4 outline-0 focus:border-2 focus:border-blue-400 duration-200"
           placeholder="Confirm Your Password"
+          {...register("confirm-password")}
         />
       </div>
     </div>

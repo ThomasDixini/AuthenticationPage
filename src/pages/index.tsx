@@ -5,7 +5,8 @@ import { PersonaInformationStep } from "@/components/PersonaInformationStep";
 import { ReviewStep } from "@/components/ReviewStep";
 import { ValidationFields } from "@/components/ValidationFields";
 import { MenuContext } from "@/context/MenuContext";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 
 export default function Home() {
   const {
@@ -14,18 +15,35 @@ export default function Home() {
     handleDecrementCurrentStep,
   } = useContext(MenuContext);
 
-  const [image, setImage] = useState('')
+  const [image, setImage] = useState("");
+
+  const { register, getValues } = useForm();
+
+  async function sendFormValuesToBackEnd() {
+    const values = getValues();
+
+    const response = await fetch("http://localhost:3000/api/hello", {
+      method: "POST",
+      body: JSON.stringify(values),
+    });
+    const data = await response.json();
+    return data;
+  }
+
+  useEffect(() => {
+    sendFormValuesToBackEnd();
+  });
 
   const defineValidationPageContent = () => {
     switch (currentStep) {
       case 1:
-        return <PersonaInformationStep />;
+        return <PersonaInformationStep register={register} />;
       case 2:
-        return <ValidationFields />;
+        return <ValidationFields register={register} />;
       case 3:
-        return <ImageSelect image={image} setImage={setImage}/>;
+        return <ImageSelect image={image} setImage={setImage} />;
       case 4:
-        return <ReviewStep image={image}/>;
+        return <ReviewStep image={image} register={register} />;
       default:
         return <div> Hi There! </div>;
     }
@@ -55,13 +73,27 @@ export default function Home() {
               {" "}
               Back{" "}
             </button>
-            <button
-              className="px-12 h-14 bg-blue-600 rounded-lg font-bold hover:bg-blue-900 duration-200"
-              onClick={handleIncrementCurrentStep}
-            >
-              {" "}
-              Next{" "}
-            </button>
+
+            {currentStep == 4 ? (
+              <button
+                type="button"
+                className="px-12 h-14 bg-blue-600 rounded-lg font-bold hover:bg-blue-900 duration-200"
+                onClick={sendFormValuesToBackEnd}
+              >
+                {" "}
+                Send{" "}
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="px-12 h-14 bg-blue-600 rounded-lg font-bold enabled:hover:bg-blue-900 duration-200 disabled:opacity-50 [&:not(:disabled)]:cursor-pointer disabled:cursor-not-allowed"
+                onClick={handleIncrementCurrentStep}
+                disabled={currentStep == 3 && !image}
+              >
+                {" "}
+                Next{" "}
+              </button>
+            )}
           </div>
         </main>
       </div>

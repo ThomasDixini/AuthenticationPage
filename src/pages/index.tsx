@@ -27,6 +27,7 @@ export default function Home() {
       body: JSON.stringify(values),
     });
     const data = await response.json();
+    console.log(data)
     return data;
   }
 

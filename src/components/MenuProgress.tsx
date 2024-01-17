@@ -15,14 +15,14 @@ export function MenuProgress() {
             className="flex justify-end items-center gap-6 relative "
           >
             <div className="text-right">
-              <span className="font-bold text-lg">{step}</span>
+              <span className="font-bold text-xs md:text-lg">{step}</span>
               <p className="text-gray-400 opacity-70 text-sm">
                 Browse and upload
               </p>
             </div>
             <div className={`relative flex justify-center items-start mr-16 `}>
               <div
-                className={`p-3 rounded-full bg-gray-600 z-10 duration-200
+                className={`p-2 md:p-3 rounded-full bg-gray-600 z-10 duration-200
                 ${currentStep === indice + 1 && "active"} 
                 ${indice + 1 < currentStep && "complete"}
                 `}

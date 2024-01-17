@@ -63,10 +63,10 @@ export default function Home() {
         <aside className="min-h-screen border-r-2 border-blue-800">
           <MenuProgress />
         </aside>
-        <main className="p-8 flex-1">
+        <main className="p-4 md:p-8 flex-1">
           <HeaderSteps />
           {defineValidationPageContent()}
-          <div className="mt-8 flex justify-end gap-2">
+          <div className="mt-8 flex flex-col md:flex-row justify-end gap-2">
             <button
               className="px-12 h-14 font-bold hover:brightness-50 duration-200"
               onClick={handleDecrementCurrentStep}

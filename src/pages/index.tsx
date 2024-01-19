@@ -1,6 +1,7 @@
 import { HeaderSteps } from "@/components/HeaderSteps";
 import { ImageSelect } from "@/components/ImageSelect";
 import { MenuProgress } from "@/components/MenuProgress";
+import { MenuProgressMobile } from "@/components/MenuProgressMobile";
 import { PersonaInformationStep } from "@/components/PersonaInformationStep";
 import { ReviewStep } from "@/components/ReviewStep";
 import { ValidationFields } from "@/components/ValidationFields";
@@ -27,7 +28,7 @@ export default function Home() {
       body: JSON.stringify(values),
     });
     const data = await response.json();
-    console.log(data)
+    console.log(data);
     return data;
   }
 
@@ -62,6 +63,7 @@ export default function Home() {
       <div className="pt-8 col-span-3 flex gap-10">
         <aside className="min-h-screen border-r-2 border-blue-800">
           <MenuProgress />
+          <MenuProgressMobile />
         </aside>
         <main className="p-4 md:p-8 flex-1">
           <HeaderSteps />

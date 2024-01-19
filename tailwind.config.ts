@@ -39,7 +39,9 @@ const config: Config = {
       "green": {
         500: "#22c55e"
       },
-      transparent: 'transparent'
+      "teste": {
+        0: "#0000"
+      }
     }
   },
   plugins: [],

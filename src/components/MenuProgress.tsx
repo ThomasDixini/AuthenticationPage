@@ -7,7 +7,7 @@ export function MenuProgress() {
   const { currentStep } = useContext(MenuContext);
 
   return (
-    <menu className="mt-8 flex flex-col gap-20">
+    <menu className="mt-8 flex flex-col gap-20 hidden md:flex">
       {steps.map((step, indice) => {
         return (
           <li
